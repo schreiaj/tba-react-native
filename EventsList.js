@@ -11,6 +11,7 @@ let {
   TouchableNativeFeedback
 } = React;
 let TBA = require('./TBA');
+let EventScreen = require('./EventScreen');
 
 
 
@@ -53,7 +54,11 @@ var EventList = React.createClass({
   },
 
   selectEvent: function(event){
-    console.log(event.short_name);
+    this.props.navigator.push({
+            title: event.short_name,
+            component: EventScreen,
+            passProps: {event},
+          });
   },
 
   renderEvent: function(event) {
